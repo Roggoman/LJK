@@ -14,12 +14,9 @@ class Suprematism(QMainWindow):
         self.setMouseTracking(True)
         Form.setObjectName("Form")
         Form.resize(800, 600)
-        self.retranslateUi(Form)
-        QtCore.QMetaObject.connectSlotsByName(Form)
-
-    def retranslateUi(self, Form):
         trans = QtCore.QCoreApplication.translate
         Form.setWindowTitle(trans("Form", "Form"))
+        QtCore.QMetaObject.connectSlotsByName(Form)
 
     def __init__(self):
         super().__init__()
@@ -33,10 +30,10 @@ class Suprematism(QMainWindow):
         qp.begin(self)
         self.draw(qp)
 
- 
     def draw(self, qp):
         if self.flag:
-            qp.setBrush(QColor('Yellow'))
+            qp.setBrush(
+                QColor(randint(0, 255), randint(0, 255), randint(0, 255)))
             leigt = randint(50, 200)
             qp.drawEllipse(randint(0, 600), randint(0, 400), leigt, leigt)
 
